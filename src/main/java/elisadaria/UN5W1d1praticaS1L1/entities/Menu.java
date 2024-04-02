@@ -12,7 +12,7 @@ import java.util.List;
 //attenzione!
 @ToString
 public class Menu {
-    private List<Pizza> pizzas;
-    private List<Drink>drinks;
+    private Pizza pizza;
+    private Drink drink;
 
 }

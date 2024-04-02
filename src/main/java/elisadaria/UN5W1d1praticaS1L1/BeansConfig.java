@@ -1,6 +1,7 @@
 package elisadaria.UN5W1d1praticaS1L1;
 
 import elisadaria.UN5W1d1praticaS1L1.entities.Drink;
+import elisadaria.UN5W1d1praticaS1L1.entities.Menu;
 import elisadaria.UN5W1d1praticaS1L1.entities.Pizza;
 import elisadaria.UN5W1d1praticaS1L1.entities.Topping;
 import org.springframework.context.annotation.Bean;
@@ -53,5 +54,9 @@ public class BeansConfig {
         margherita_toppings.add(mozzarella());
         margherita_toppings.add(pomodoro());
         return new Pizza("margherita",6.50,1000, margherita_toppings);
+    }
+    @Bean
+    public Menu classic(){
+        return new Menu(margherita(),pepsi());
     }
 }
