@@ -1,16 +1,17 @@
 package elisadaria.UN5W1d1praticaS1L1;
 
-import elisadaria.UN5W1d1praticaS1L1.entities.Drink;
-import elisadaria.UN5W1d1praticaS1L1.entities.Menu;
-import elisadaria.UN5W1d1praticaS1L1.entities.Pizza;
-import elisadaria.UN5W1d1praticaS1L1.entities.Topping;
+import elisadaria.UN5W1d1praticaS1L1.entities.*;
+import elisadaria.UN5W1d1praticaS1L1.enums.StateOfTavolo;
+import lombok.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
 public class BeansConfig {
     @Bean
     public Topping mozzarella(){
@@ -91,5 +92,9 @@ public class BeansConfig {
         toppingsList.add(olive());
         toppingsList.add(salamino());
         return new Menu(pizzaList,drinkList,toppingsList);
+    }
+    @Bean
+    public Tavolo tavolo(@Value("${coperto.price}") double coperto){
+        return new Tavolo(2, coperto, 5, StateOfTavolo.OCCUPATO);
     }
 }
