@@ -56,7 +56,40 @@ public class BeansConfig {
         return new Pizza("margherita",6.50,1000, margherita_toppings);
     }
     @Bean
-    public Menu classic(){
-        return new Menu(margherita(),pepsi());
+    public Pizza diavola(){
+        List<Topping>diavola_toppings=new ArrayList<>();
+        diavola_toppings.add(salamino());
+        diavola_toppings.add(olive());
+        diavola_toppings.add(mozzarella());
+        return new Pizza("diavola",7.50,1200, diavola_toppings);
+    }
+    @Bean
+    public Pizza myFlavour(){
+        List<Topping>my_flavour_toppings=new ArrayList<>();
+        my_flavour_toppings.add(funghi());
+        my_flavour_toppings.add(prosciutto());
+        my_flavour_toppings.add(mozzarella());
+        return new Pizza("my_flavour",7,1100, my_flavour_toppings);
+    }
+
+
+    @Bean
+    public Menu menu(){
+        List<Pizza> pizzaList = new ArrayList<>();
+        List<Drink> drinkList = new ArrayList<>();
+        List<Topping> toppingsList = new ArrayList<>();
+        pizzaList.add(diavola());
+        pizzaList.add(margherita());
+        pizzaList.add(myFlavour());
+        drinkList.add(radler());
+        drinkList.add(pepsi());
+        drinkList.add(bici());
+        toppingsList.add(prosciutto());
+        toppingsList.add(pomodoro());
+        toppingsList.add(mozzarella());
+        toppingsList.add(funghi());
+        toppingsList.add(olive());
+        toppingsList.add(salamino());
+        return new Menu(pizzaList,drinkList,toppingsList);
     }
 }

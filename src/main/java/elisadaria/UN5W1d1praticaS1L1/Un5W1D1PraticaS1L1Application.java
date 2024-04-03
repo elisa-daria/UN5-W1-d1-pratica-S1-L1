@@ -12,8 +12,7 @@ public class Un5W1D1PraticaS1L1Application {
 		SpringApplication.run(Un5W1D1PraticaS1L1Application.class, args);
 		AnnotationConfigApplicationContext ctx=new AnnotationConfigApplicationContext(Un5W1D1PraticaS1L1Application.class);
 		Menu menu=ctx.getBean(Menu.class);
-		System.out.println(menu.getPizza());
-		System.out.println(menu.getDrink());
+		menu.printMenu();
 
 	}
 

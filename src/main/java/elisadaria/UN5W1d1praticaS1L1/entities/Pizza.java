@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Pizza {
+public class Pizza extends MenuElement{
     private String name;
     private double price;
     private double kiloCal;

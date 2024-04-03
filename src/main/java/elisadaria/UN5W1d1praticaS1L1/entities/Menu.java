@@ -12,7 +12,23 @@ import java.util.List;
 //attenzione!
 @ToString
 public class Menu {
-    private Pizza pizza;
-    private Drink drink;
+    private List <Pizza> pizzas;
+    private List <Drink> drinks;
+    private List <Topping> toppings;
+    public void printMenu() {
+        System.out.println("******* Menu *******");
+        System.out.println("PIZZAS");
+        this.pizzas.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("TOPPINGS");
+        this.toppings.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("DRINKS");
+        this.drinks.forEach(System.out::println);
+        System.out.println();
+
+    }
 
 }
