@@ -2,7 +2,7 @@ package elisadaria.UN5W1d1praticaS1L1;
 
 import elisadaria.UN5W1d1praticaS1L1.entities.*;
 import elisadaria.UN5W1d1praticaS1L1.enums.StateOfTavolo;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
