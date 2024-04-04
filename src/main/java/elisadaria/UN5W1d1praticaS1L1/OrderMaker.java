@@ -1,13 +1,45 @@
 package elisadaria.UN5W1d1praticaS1L1;
 
+import elisadaria.UN5W1d1praticaS1L1.entities.MenuElement;
+import elisadaria.UN5W1d1praticaS1L1.entities.Ordine;
+import elisadaria.UN5W1d1praticaS1L1.entities.Tavolo;
+import elisadaria.UN5W1d1praticaS1L1.enums.StateOfOrdine;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Component
 public class OrderMaker implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("HEllo World from the runner");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Un5W1D1PraticaS1L1Application.class);
+       Tavolo tI= (Tavolo) context.getBean("tavoloI");
+        Ordine orderI=new Ordine();
+        Random rdm=new Random();
+        List <MenuElement>orderedItems=new ArrayList<>();
+        orderedItems.add((MenuElement) context.getBean("margherita"));
+        orderedItems.add((MenuElement) context.getBean("margherita"));
+        orderedItems.add((MenuElement) context.getBean("diavola"));
+        orderedItems.add((MenuElement) context.getBean("pepsi"));
+        orderedItems.add((MenuElement) context.getBean("radler"));
+        orderedItems.add((MenuElement) context.getBean("bici"));
+        orderI.setNOrdine(rdm.nextInt(1,1125));
+        orderI.setTavolo(tI);
+        orderI.setNCoperti(3);
+        orderI.setOraAcquisizione("13:00");
+        orderI.setStatoOrdine(StateOfOrdine.SERVITO);
+        orderI.setItems(orderedItems);
+        orderI.setImportoTotale(orderedItems.stream().mapToDouble(item -> item.getPrice()).sum());
+        System.out.println("DETTAGIO ORDINE "+orderI.getNOrdine());
+        System.out.println("AL TAVOLO "+tI.getNumero());
+        System.out.println(orderI);
 
     }
 }

@@ -16,6 +16,7 @@ public class Ordine {
         private int nCoperti;
         private String oraAcquisizione;
         private double importoTotale;
+        private Tavolo tavolo;
         private List<MenuElement>items;
 
     }

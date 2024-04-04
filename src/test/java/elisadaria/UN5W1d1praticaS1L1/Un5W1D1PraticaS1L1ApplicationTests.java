@@ -9,5 +9,9 @@ class Un5W1D1PraticaS1L1ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	@Test
+	void isImportoTotaleCorrect(){
+
+	}
 
 }
