@@ -20,10 +20,11 @@ class Un5W1D1PraticaS1L1ApplicationTests {
 			"6.5, 6.5,13","7.5,3,10.5"})
 	void isImportoTotaleCorrect(double price1,double price2,double expectedTot){
 		List<MenuElement> orderedItems = new ArrayList<>();
-		orderedItems.add(new MenuElement me1 price1);
-		orderedItems.add(createMockMenuElement("item2", price2));
-		double tot=OrderMaker.calculateImportoTotale(price1,price2)
+		orderedItems.add(price1);
+		orderedItems.add(price2);
+		double tot=new OrderMaker().calculateImportoTotale(price1,price2)
 
 	}
+
 
 }
