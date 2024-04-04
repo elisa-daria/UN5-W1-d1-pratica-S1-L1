@@ -94,7 +94,23 @@ public class BeansConfig {
         return new Menu(pizzaList,drinkList,toppingsList);
     }
     @Bean
-    public Tavolo tavolo(@Value("${coperto.price}") double coperto){
-        return new Tavolo(2, coperto, 5, StateOfTavolo.OCCUPATO);
+    public Tavolo tavoloI(@Value("${coperto.price}") double coperto){
+        return new Tavolo(1, coperto, 5, StateOfTavolo.LIBERO);
+    }
+    @Bean
+    public Tavolo tavoloII(@Value("${coperto.price}") double coperto){
+        return new Tavolo(2, coperto, 3, StateOfTavolo.LIBERO);
+    }
+    @Bean
+    public Tavolo tavoloIII(@Value("${coperto.price}") double coperto){
+        return new Tavolo(3, coperto, 6, StateOfTavolo.LIBERO);
+    }
+    @Bean
+    public Tavolo tavoloIV(@Value("${coperto.price}") double coperto){
+        return new Tavolo(4, coperto, 10, StateOfTavolo.LIBERO);
+    }
+    @Bean
+    public Tavolo tavoloV(@Value("${coperto.price}") double coperto){
+        return new Tavolo(5, coperto, 6, StateOfTavolo.LIBERO);
     }
 }
