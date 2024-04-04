@@ -16,6 +16,11 @@ import java.util.Random;
 
 @Component
 public class OrderMaker implements CommandLineRunner {
+    public double calculateImportoTotale(List<MenuElement> orderedItems) {
+        return orderedItems.stream()
+                .mapToDouble(MenuElement::getPrice)
+                .sum();
+    }
     @Override
     public void run(String... args) throws Exception {
         System.out.println("HEllo World from the runner");
@@ -36,7 +41,8 @@ public class OrderMaker implements CommandLineRunner {
         orderI.setOraAcquisizione("13:00");
         orderI.setStatoOrdine(StateOfOrdine.SERVITO);
         orderI.setItems(orderedItems);
-        orderI.setImportoTotale(orderedItems.stream().mapToDouble(item -> item.getPrice()).sum());
+        double importoTot=orderedItems.stream().mapToDouble(item -> item.getPrice()).sum();
+        orderI.setImportoTotale(importoTot);
         System.out.println("DETTAGIO ORDINE "+orderI.getNOrdine());
         System.out.println("AL TAVOLO "+tI.getNumero());
         System.out.println(orderI);
